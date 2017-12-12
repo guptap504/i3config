@@ -45,6 +45,8 @@ bindsym $mod+Tab exec  rofi -show window
 bindsym $mod+Shift+z exec clipmenu -i 
 # dmenu todo
 bindsym $mod+Shift+a exec ~/.config/i3/todo
+# dmenu file browser
+bindsym $mod+Shift+s exec ~/.config/i3/dbdb.sh
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
