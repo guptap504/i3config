@@ -34,19 +34,17 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+Shift+d exec dmenu_run
+bindsym $mod+Shift+d exec --no-startup-id dmenu_run
 #bindsym $mod+Shift+d exec rofi -show run
 # modified dmenu
 #bindsym $mod+d exec rofi -show drun
-bindsym $mod+d exec j4-dmenu-desktop
+bindsym $mod+d exec --no-startup-id j4-dmenu-desktop
 # rofi window switcher
 bindsym $mod+Tab exec  rofi -show window
 # start clipmenu
 bindsym $mod+Shift+z exec clipmenu -i 
 # dmenu todo
 bindsym $mod+Shift+a exec ~/.config/i3/todo
-# dmenu file browser
-bindsym $mod+Shift+s exec ~/.config/i3/dbdb.sh
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
@@ -107,6 +105,8 @@ for_window [class="^Terminator$"] focus
 
 assign [class="^Code$"] 3: code
 for_window [class="^Code$"] focus
+assign [class="^Gedit$"] 3: code
+for_window [class="^Gedit$"] focus
 
 assign [class="^Nautilus$"] 4: files
 for_window [class="^Nautilus$"] focus
@@ -115,8 +115,6 @@ for_window [class="^Evince$"] focus
 
 assign [class="^Vlc$"] 5: media
 for_window [class="^Vlc$"] focus
-assign [class="^Spotify$"] 5: media
-for_window [class="^Spotify$"] focus
 assign [class="^mpv$"] 5: media
 for_window [class="^mpv$"] focus
 
