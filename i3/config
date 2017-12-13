@@ -22,13 +22,16 @@ bindsym XF86WLAN exec --no-startup-id ~/.config/i3/wifiradio.sh
 bindsym $mod+z exec /home/prashant/.config/i3/xsettoggle.sh
 
 # take screenshot
-bindsym Print exec gnome-screenshot
+bindcode 107 exec --no-startup-id gnome-screenshot --interactive
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
+
+# The middle button over a titlebar kills the window
+bindsym --release button2 kill
 
 # kill focused window
 bindsym $mod+Shift+q kill
