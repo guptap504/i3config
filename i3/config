@@ -11,7 +11,7 @@ exec --no-startup-id dunst
 exec --no-startup-id kdeconnect-indicator
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id xinput set-prop 11 279 1 # enable tap to click
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 
+exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1 
 exec --no-startup-id nm-applet
 exec --no-startup-id redshift -l geoclue2
 exec --no-startup-id clipmenud
@@ -22,7 +22,7 @@ bindsym XF86WLAN exec --no-startup-id ~/.config/i3/wifiradio.sh
 bindsym $mod+z exec /home/prashant/.config/i3/xsettoggle.sh
 
 # take screenshot
-bindcode 107 exec --no-startup-id gnome-screenshot --interactive
+bindcode 107 exec --no-startup-id spectacle
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -38,16 +38,19 @@ bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+Shift+d exec --no-startup-id dmenu_run
-#bindsym $mod+Shift+d exec rofi -show run
+
 # modified dmenu
-#bindsym $mod+d exec rofi -show drun
 bindsym $mod+d exec --no-startup-id j4-dmenu-desktop
+
 # rofi window switcher
 bindsym $mod+Tab exec  rofi -show window
+
 # start clipmenu
 bindsym $mod+Shift+z exec clipmenu -i 
+
 # dmenu todo
 bindsym $mod+Shift+a exec ~/.config/i3/todo
+
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
@@ -100,21 +103,21 @@ bindsym $mod+a focus parent
 
 assign [instance="^Navigator$"] 1: www
 for_window [instance="^Navigator$"] focus
-assign [instance="^evolution$"] 1: www
-for_window [instance="^evolution$"] focus
+assign [instance="^kmail$"] 1: www
+for_window [instance="^kmail$"] focus
 
 assign [class="^Terminator$"] 2: term
 for_window [class="^Terminator$"] focus
 
 assign [class="^Code$"] 3: code
 for_window [class="^Code$"] focus
-assign [class="^Gedit$"] 3: code
-for_window [class="^Gedit$"] focus
+assign [class="^QtCreator$"] 3: code
+for_window [class="^QtCreator$"] focus
 
-assign [class="^Nautilus$"] 4: files
-for_window [class="^Nautilus$"] focus
-assign [class="^Evince$"] 4: files
-for_window [class="^Evince$"] focus
+assign [class="^dolphin$"] 4: files
+for_window [class="^dolphin$"] focus
+assign [class="^okular$"] 4: files
+for_window [class="^okular$"] focus
 
 assign [class="^Vlc$"] 5: media
 for_window [class="^Vlc$"] focus
