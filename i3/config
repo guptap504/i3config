@@ -10,11 +10,11 @@ exec --no-startup-id compton
 exec --no-startup-id dunst
 exec --no-startup-id kdeconnect-indicator
 exec --no-startup-id nitrogen --restore
-exec --no-startup-id xinput set-prop 11 279 1 # enable tap to click
+exec_always --no-startup-id xinput set-prop 11 279 1 # enable tap to click
 exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1 
 exec --no-startup-id nm-applet
 exec --no-startup-id redshift -l geoclue2
-exec --no-startup-id clipmenud
+exec --no-startup-id xfce4-clipman
 # Toggle wifi
 bindsym XF86WLAN exec --no-startup-id ~/.config/i3/wifiradio.sh
 
@@ -44,9 +44,6 @@ bindsym $mod+d exec --no-startup-id j4-dmenu-desktop
 
 # rofi window switcher
 bindsym $mod+Tab exec  rofi -show window
-
-# start clipmenu
-bindsym $mod+Shift+z exec clipmenu -i 
 
 # dmenu todo
 bindsym $mod+Shift+a exec ~/.config/i3/todo
@@ -105,14 +102,19 @@ assign [instance="^Navigator$"] 1: www
 for_window [instance="^Navigator$"] focus
 assign [instance="^kmail$"] 1: www
 for_window [instance="^kmail$"] focus
+assign [instance="^chromium$"] 1: www
+for_window [instance="^chromium$"] focus
 
-assign [class="^Terminator$"] 2: term
-for_window [class="^Terminator$"] focus
+
+assign [class="^konsole$"] 2: term
+for_window [class="^konsole$"] focus
 
 assign [class="^Code$"] 3: code
 for_window [class="^Code$"] focus
 assign [class="^QtCreator$"] 3: code
 for_window [class="^QtCreator$"] focus
+assign [class="^jetbrains-pycharm-ce$"] 3: code
+for_window [class="^jetbrains-pycharm-ce$"] focus
 
 assign [class="^dolphin$"] 4: files
 for_window [class="^dolphin$"] focus
