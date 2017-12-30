@@ -9,7 +9,7 @@ font pango:Roboto Regular 8
 exec --no-startup-id compton 
 exec --no-startup-id dunst
 exec --no-startup-id kdeconnect-indicator
-exec --no-startup-id nitrogen --restore
+exec --no-startup-id nitrogen --restore --force-setter=xinerama
 exec_always --no-startup-id xinput set-prop 11 279 1 # enable tap to click
 exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1 
 exec --no-startup-id nm-applet
@@ -32,6 +32,9 @@ bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
 
 # The middle button over a titlebar kills the window
 bindsym --release button2 kill
+
+# remove border
+hide_edge_borders both
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -203,8 +206,8 @@ mode "$mode_system" {
 bindsym $mod+Shift+Escape mode "$mode_system"
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle # toggle mic mute
 
